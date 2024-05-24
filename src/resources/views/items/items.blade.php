@@ -5,33 +5,29 @@
 @endsection
 
 @section('content')
-<div class="attendance__alert">
-  // メッセージ機能
-</div>
 
-<div class="attendance__content">
-  <nav>
-          <ul class="header-nav">
-            <li class="header-nav__item">
 
+<div class="listtype__content">
+  <div class="listtype__list">
+          <ul class="listtype-nav">
+            <li class="listtype-nav__item">
+              <form class="form" action='/' method="get">
+                @csrf
+                <button class="listtype-nav__button">おすすめ</button>
+              </form>
+            </li>
+
+            @if (Auth::check())
+            <li class="listtype-nav__item">
               <form class="form" action='/item/{item_id}' method="get">
                 @csrf
-                <button class="header-nav__button">おすすめ</button>
+                <button class="listtype-nav__button">マイリスト</button>
               </form>
-            </li>{{-- トップページへ戻る未作成 --}}
-
-            @if (Auth::check()){
-            <li class="header-nav__item">
-
-              <form class="form" action='/item/{item_id}' method="get">
-                @csrf
-                <button class="header-nav__button">マイリスト</button>
-              </form>
-            </li>{{-- マイリスト画面へ未作成 --}}
-
+            </li>
             @endif
           </ul>
-        </nav>
+    </div>
+  </div>
   <div class="attendance-table">
     <table class="attendance-table__inner">
       <tr class="attendance-table__row">
