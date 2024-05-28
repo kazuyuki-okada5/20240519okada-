@@ -17,7 +17,7 @@ class CreateProfilesTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users');
             $table->string('img_url' , 255);
-            $table->integer('post_code , 7');
+            $table->integer('post_code');
             $table->string('address' , 255);
             $table->string('building' , 255);
             $table->timestamps();
